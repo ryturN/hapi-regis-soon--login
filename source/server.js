@@ -5,12 +5,13 @@ const routes = require("./routes");
 const path =require('path')
 const Boom = require('@hapi/boom')
 
+
 const users = {
-  ryan:{
+  watashiox:{
     username: 'watashiox',
     password: 'ryan123',
     id: 0,
-    name : 'M Adryan'
+    name : 'watashiox'
   },
   Ziyad:{
     username: 'ziyadzk',
@@ -18,22 +19,6 @@ const users = {
     id: 1,
     name : 'Ziyad'
   },
-}
-
-const validate = async(request, username, password, h)=>{
-
-  if(!users[username]){
-    return { isValid: true }
-  }
-
-  const user = users[username];
-
-  if(user.password === password){
-    return {isValid: true,credentials: {id: user.id, name: user.name}};
-  } else{
-    return {isValid: false}
-  }
-
 }
 
 const init = async () => {
@@ -64,11 +49,29 @@ const init = async () => {
       plugin: require('@hapi/vision'),
     },
     {
-      plugin: require('@hapi/basic')
+      plugin: require('@hapi/basic'),
+    },
+    {
+      plugin: require('@hapi/cookie'),
     },
   ]);
 
-  server.auth.strategy('login', 'basic', { validate })
+  server.auth.strategy('login','cookie', {
+    cookie: {
+      name: 'session',
+      password: 'ryanryanryanryanryanryanryanryanryarnaryha',
+      isSecure: false,
+      ttl: 30000
+    },
+    redirectTo: '/login',
+    validate: async (request,session)=>{
+      if(session.username === 'ryan' && session.password === 'ryan123'){
+        return {isValid: true,credentials: {username: 'mie ayam'}}; 
+      }else{
+        return {isValid: false};
+      }
+    }
+  })
 
   server.auth.default('login');
 
@@ -80,6 +83,7 @@ const init = async () => {
     layout: 'default'
   })
 
+  
 
   server.route(routes);
 
