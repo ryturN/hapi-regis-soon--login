@@ -4,6 +4,8 @@ const Hapi = require("@hapi/hapi");
 const routes = require("./routes");
 const path =require('path')
 const Boom = require('@hapi/boom')
+const Users = require("../models/users");
+const {findUser} = require("../models/users");
 
 
 const users = {
@@ -56,6 +58,22 @@ const init = async () => {
     },
   ]);
 
+  // server.auth.strategy('login','cookie', {
+  //   cookie: {
+  //     name: 'session',
+  //     password: 'ryanryanryanryanryanryanryanryanryarnaryha',
+  //     isSecure: false,
+  //     ttl: 30000
+  //   },
+  //   redirectTo: '/login',
+  //   validate: async (request,session)=>{
+  //     if(session.username === 'ryan' && session.password === 'ryan123'){
+  //       return {isValid: true,credentials: {username: 'mie ayam'}}; 
+  //     }else{
+  //       return {isValid: false};
+  //     }
+  //   }
+  // })
   server.auth.strategy('login','cookie', {
     cookie: {
       name: 'session',
@@ -64,14 +82,15 @@ const init = async () => {
       ttl: 30000
     },
     redirectTo: '/login',
-    validate: async (request,session)=>{
-      if(session.username === 'ryan' && session.password === 'ryan123'){
-        return {isValid: true,credentials: {username: 'mie ayam'}}; 
-      }else{
-        return {isValid: false};
+    validate: async (request, session) => {
+      if (session.username && session.password) {
+        if (findUser(session.username , session.password)) {
+          return { isValid: true, credentials: { username: session.username } };
+        }
       }
+          return {isValid : false};
     }
-  })
+  });
 
   server.auth.default('login');
 

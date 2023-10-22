@@ -22,9 +22,22 @@ const Users = dbConnection.define('users',{
     timesTamps: false
 });
 
-module.exports.createUser= function(username,password){
-    Users.create({username, password})
-    .then((data)=>{
-        console.log(data.toJSON());
-    })
+const findUser= async function(username,password){
+    try{
+        const user = await Users.findOne({where: {username, password}});
+        return user
+    }catch(error){
+        console.log(`Error Finding users:`, error);
+        throw error
+    }
 }
+
+module.exports = { Users, findUser};
+
+// module.exports.createUser= function(username,password){
+//     Users.create({username, password})
+//     .then((data)=>{
+//         console.log(data.toJSON());
+//     })
+    
+// }
