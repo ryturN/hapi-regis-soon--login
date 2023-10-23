@@ -41,6 +41,25 @@ const routes = [
           }
         }
       },
+    {
+        method: 'POST',
+        path: '/registrasi',
+        handler: async (request, h) => {
+          const { username, password } = request.payload;
+          const user = await findUser(username, password);
+          if (user) {
+            request.cookieAuth.set({ username: user.username, password: user.password });
+            return h.redirect('/welcome');
+          } else {
+            return h.redirect('/');
+          }
+        },
+        options: {
+          auth: {
+            mode: 'try'
+          }
+        }
+      },
   {
     method: "GET",
     path: "/logout",
@@ -53,7 +72,15 @@ const routes = [
     method: "GET",
     path: "/welcome",
     handler: (request, h) => {
-      return `Hallo ${request.auth.credentials.username} Selamat datang di web yang bodoh ini`;
+      // return `Hallo ${request.auth.credentials.username} Selamat datang di web yang bodoh ini`;
+      return h.file('index.html');
+    },
+  },
+  {
+    method: "GET",
+    path: "/kontak",
+    handler: (request, h) => {
+      return h.file('contact.html');
     },
   },
   {

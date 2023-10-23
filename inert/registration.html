@@ -1,106 +1,56 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Register</title>
-
+    <title>Registration Form</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-
 </head>
-
 <body class="bg-gray-100">
-
-    <div class="container mx-auto">
-
-        <div class="flex flex-wrap justify-center">
-
-            <div class="w-full max-w-sm">
-
-                <form id="form" onsubmit="return false;">
-
-                    <div class="mb-4">
-
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="fullname">
-
-                            Full Name
-
-                        </label>
-
-                        <input id="fullname" name="fullname" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Full Name">
-
-                    </div>
-
-                    <div class="mb-4">
-
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-
-                            Username
-
-                        </label>
-
-                        <input id="username" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Username">
-
-                    </div>
-
-                    <div class="mb-4">
-
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-
-                            Email
-
-                        </label>
-
-                        <input id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" placeholder="Email">
-
-                    </div>
-
-                    <div class="mb-4">
-
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-
-                            Password
-
-                        </label>
-
-                        <input id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" placeholder="Password">
-
-                    </div>
-
-                    <div class="mb-4">
-
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="confirm-password">
-
-                            Confirm Password
-
-                        </label>
-
-                        <input id="confirm-password" name="confirm-password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" placeholder="Confirm Password">
-
-                    </div>
-
-                    <div class="flex items-center justify-between">
-
-                        <button id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-
-                            Register
-
-                        </button>
-
-                    </div>
-
-                </form>
-
-            </div>
-
+    <div class="container mx-auto my-10">
+        <div class="w-full bg-white rounded-lg shadow-md p-5">
+            <h1 class="text-xl font-semibold mb-5">Registration Form</h1>
+            <form>
+                <div class="mb-5">
+                    <label for="first_name" class="block mb-1">First Name</label>
+                    <input id="first_name" name="first_name" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="First Name">
+                </div>
+                <div class="mb-5">
+                    <label for="last_name" class="block mb-1">Last Name</label>
+                    <input id="last_name" name="last_name" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Last Name">
+                </div>
+                <div class="mb-5">
+                    <label for="full_name" class="block mb-1">Full Name</label>
+                    <input id="full_name" name="full_name" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Full Name" readonly>
+                </div>
+                <div class="mb-5">
+                    <label for="username" class="block mb-1">Username</label>
+                    <input id="username" name="username" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Username">
+                </div>
+                <div class="mb-5">
+                    <label for="email" class="block mb-1">Email Address</label>
+                    <input id="email" name="email" type="email" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Email Address">
+                </div>
+                <div class="mb-5">
+                    <label for="password" class="block mb-1">Password</label>
+                    <input id="password" name="password" type="password" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Password">
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg">Register</button>
+            </form>
         </div>
-
     </div>
+    <script>
+        document.getElementById('first_name').addEventListener('input', function() {
+            var firstName = this.value;
+            var lastName = document.getElementById('last_name').value;
+            document.getElementById('full_name').value = firstName + ' ' + lastName;
+        });
+
+        document.getElementById('last_name').addEventListener('input', function() {
+            var firstName = document.getElementById('first_name').value;
+            var lastName = this.value;
+            document.getElementById('full_name').value = firstName + ' ' + lastName;
+        });
     </script>
-
 </body>
-
 </html>

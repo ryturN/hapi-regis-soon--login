@@ -35,7 +35,7 @@ const findUser= async function(username,password){
 module.exports = { Users, findUser};
 
 // module.exports.createUser= function(username,password){
-//     Users.create({username, password})
+//     Users.create({firstName,lastName,fullName, username, password,email,})
 //     .then((data)=>{
 //         console.log(data.toJSON());
 //     })

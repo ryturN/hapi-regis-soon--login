@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About ME</title>
+    <link rel="stylesheet" href="../inert/assets/style/style.css">
+    <link rel="website icon" type="png" href="./assets/foto/360_F_522989939_2XZDGHqJCCMegLZWJaEkKT0bc1Wrxhr8.jpg">
+    <script src="https://kit.fontawesome.com/f1b8ad05bd.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* FONT  */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,300;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+/* FONT */
+
+/* ROOT */
+:root {
+  --main-gray: #96b6c5;
+  --main-gray2: #adc4ce;
+  --main-yellow: #eee0c9;
+  --main-white: #f1f0e8;
+  --main-gray3: #f4f5f7;
+  --main-gray4: #8c949b;
+  --main-gray5: #a7acad;
+  /* --main-gray5: #9ca9af; */
+  --main-gray6: #D1D3D3;
+  --main-gray7: #949695;
+  --main-gray8: #00000007;
+}
+/* ROOT */
+
+
+
+
+/* responsive */
+@media (max-width: 768px) {
+  /* Reset font size for smaller screens */
+  body {
+    font-size: 16px;
+  }
+
+  /* Adjust the size and positioning of the .foto element */
+  .foto {
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+    right: 60px;
+    z-index: 20;
+  }
+  .foto img {
+    justify-self: center;
+    align-items: center;
+    width: 200px;
+    object-fit: cover;
+  }
+
+  .home {
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+    right: 0;
+  }
+
+  .home-content h1 {
+    font-size: 30px;
+    text-align: center;
+    left: 0;
+  }
+
+  .home-content h3 {
+    width: 60vh;
+    margin-left: 50px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .home-content p {
+    font-size: 14px;
+    width: 60vh;
+    text-align: center;
+    margin: 10px 50px;
+  }
+
+  .btn-box {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: 30%;
+    padding-right: -200px;
+  }
+
+  .fa-solid {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+  }
+
+  .navbar-logo {
+    text-align: center;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .article {
+    width: 100%;
+
+  }
+}
+
+/* responsive */
+
+
+
+
+
+
+
+
+
+
+
+/* reset */
+*,
+html {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+/* reset */
+
+html {
+  background-color: var(--main-gray7);
+}
+main{
+font-family: 'Poppins', sans-serif;;
+}
+/* DEBUG */
+.border {
+  border: 2px solid black;
+}
+/* DEBUG */
+
+/* NAVBAR Start */
+nav {
+  background-color: var(--main-gray6);
+  opacity: 100%;
+  padding: 20px;
+  font-size: 20px;
+  z-index: 100;
+  font-family: 'Press Start 2P', cursive;
+
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+}
+.navbar-logo {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+.navbar-logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-gray6);
+  animation: munculText 1s ease forwards;
+  animation-delay: 0.4s;
+}
+.navbar-logo2 {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+.navbar-logo2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-gray7);
+  animation: munculText 1s ease forwards;
+  animation-delay: 0.4s;
+}
+.nav-item {
+  padding-right: 30px;
+  font-weight: 600;
+}
+
+.nav-item .nav-link .fa-solid{
+  position: absolute;
+  top: 37px;
+  left: 43.5em;
+  font-size: 20px;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  margin: auto;
+}
+
+
+.navbar-nav li {
+  flex: 1 1 auto;
+}
+
+.navbar-nav li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar-nav li a:hover {
+  color: #555;
+  transition: ease-in-out 1ms;
+  border-bottom-style: dotted;
+  background-color: var(--main-gray3);
+  opacity: 30%;
+}
+
+.sub-menu-wrap{
+  position: absolute;
+  top: 7%;
+  right: 42%;
+  width: 350px;
+  opacity: 50%;
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 0.5s;
+  display:none;
+}
+.open-menu{
+  max-height: 400px;
+  display: block;
+}
+.sub-menu{
+  background: var(--main-gray6);
+  padding: 20px;
+  margin: 10px;
+
+}
+.sub-menu h1{
+  font-size: 20px;
+  padding-top: 2%;
+  font-weight: 500;
+}
+.sub-menu a{
+  color: #555;
+  text-decoration: none;
+}
+
+.sub-menu a:hover{
+  background: url(./assets/foto/reshot-icon-arrow-chevron-right-WDGHUKQ634.svg) no-repeat left -1px;
+}
+
+.sub-menu a:hover {
+  background-position: left;
+} 
+
+/* Navbar END */
+
+
+
+
+
+/* Main Start*/
+.foto {
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  background-color: #7e7e7e;
+  margin-left: 1200px;
+  margin-top: 200px;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.foto img {
+  position: relative;
+  width: 400px;
+  margin-left: -10px;
+  object-fit: cover;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  padding-left: 280px;
+  position: absolute;
+  top: 386px;
+}
+
+.home-content {
+  max-width: 600px;
+}
+
+.home-content h1 {
+  position: relative;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.home-content > h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-gray7);
+  animation: munculText 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.home-content h3 {
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+.home-content h3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-gray7);
+  animation: munculText 1s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.home-content p {
+  position: relative;
+  font-size: 16px;
+  margin: 20px 0 40px;
+}
+.home-content p::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-gray7);
+  animation: munculText 1s ease forwards;
+  animation-delay: 1.7s;
+}
+
+.home-content .btn-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  height: 50px;
+}
+
+.home-content .btn-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 130%;
+  background-color: var(--main-gray7);
+  animation: munculText 2s ease forwards;
+  animation-delay: 2.1s;
+  z-index: 2;
+}
+
+.btn-box a {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  background-color: var(--main-gray3);
+  border: 2px solid var(--main-gray3);
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.btn-box a:nth-child(1) {
+  background: transparent;
+  color: var(--main-gray3);
+}
+
+.btn-box a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--main-gray3);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.btn-box a:hover::before {
+  width: 100%;
+}
+.btn-box a:hover {
+  color: var(--main-gray4);
+}
+
+.section2 {
+  text-decoration: none;
+  color: var(--main-gray3);
+  margin: auto;
+  scroll-behavior: smooth;
+}
+.fa-solid {
+  position: relative;
+  top: 12em;
+  left: 2.5em;
+  font-size: 1.5em;
+  transition: transform 0.5s ease-out;
+}
+
+.fa-solid:hover {
+  cursor: pointer;
+  transform: translateY(8px);
+}
+
+.home-content {
+  max-width: 600px;
+}
+
+/*----------------------ARTICLE START----------------- */
+
+.father{
+
+  top: 450px;
+  position: relative;
+  width: 100%; /* Mengisi seluruh lebar halaman */
+  height: 100vh; /* Mengisi seluruh tinggi halaman */
+  background-color: var(--main-gray7);
+  position: relative;
+  background-image: url(/assets/foto/border-blood.png);
+  background-repeat: no-repeat;
+  background-size: cover; /* Mengisi seluruh area dengan gambar */
+  background-position: center;
+}
+
+
+/* .kotak3{
+
+} */
+
+.dissapear {
+  display: none;
+}
+
+/* .container {
+
+
+  
+} */
+.article {
+  width: 100vh;
+  position: absolute;
+  left: 270px;
+  top: 180px;
+  height: 55vh;
+  border-radius: 1.5%;
+  font-family: 'Pangolin', cursive;
+  font-size: 18px;
+
+}
+
+.article > h1 {
+  font-family: 'Rock Salt', cursive;  
+  font-size: 3em;
+  border-radius: 15px;
+  color: #fff
+}
+.aside-container{
+  width: 30vh;
+  position: absolute;
+  background-color: var(--main-gray8);
+  left: 130%;
+  top: -0px;
+  border: 2px solid var(--main-gray8);
+  border-radius: 5%;
+  box-shadow: 3px 2px 3px 3px #505050;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  background-image: url(/assets/foto/blood.png);
+
+}
+
+
+
+aside img{
+  border-radius: 5%;
+  width: 100%;
+  max-width: 250px;
+  min-width: 200px;
+  height: 300px;
+  object-fit: cover ;
+  display: flex;
+  margin: auto;
+  transition: all 1s;
+ 
+}
+
+.aside-container .sub-tittles{
+  text-align: center;
+  position: relative;
+  font-size: 1em;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+.aside-container .aside-tittles{
+  text-align: center;
+  font-size: large;
+  color: red;
+  font-size: 2em;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  
+
+}
+
+.aside-container blockquote,h1{
+  text-align: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+.aside-container p{
+  margin-left: 15px;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+.aside-container p .gap{
+  margin-left: 15px;
+}
+.aside-container p .gap1{
+  margin-left: 55px;
+}
+.aside-container p .gap2{
+  margin-left: 30px;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+.father2{
+
+  top: 1490px;
+  position: relative;
+  width: 100%; 
+  height: 100vh; 
+  background-color: var(--main-gray7);
+  position: relative;
+  background-image: url(/assets/foto/wallpaper-urahara.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+
+.article2{
+  width: 100vh;
+  position: absolute;
+  left: 770px;
+  top: 100px;
+  height: 55vh;
+  border-radius: 1.5%;
+  font-family: 'Pangolin', cursive;
+  font-size: 18px;
+}
+
+
+.article2 > h1 {
+  font-family: 'Rock Salt', cursive;  
+  font-size: 2em;
+  border-radius: 15px;
+  color: #fff
+}
+.article2 > p {
+  color: #fff;
+  background-color: #000;
+}
+
+
+.aside-container2{
+  width: 30vh;
+  position: absolute;
+  background-color: var(--main-gray8);
+  left: -50%;
+  top: -0px;
+  border: 2px solid var(--main-gray8);
+  border-radius: 5%;
+  box-shadow: 3px 2px 3px 3px #505050;
+  padding-bottom: 30px;
+  padding-top: 20px;
+
+}
+
+aside img{
+  border-radius: 5%;
+  width: 100%;
+  max-width: 250px;
+  min-width: 200px;
+  height: 300px;
+  object-fit: cover ;
+  display: flex;
+  margin: auto;
+  transition: all 1s;
+ 
+}
+
+.aside-container2 .sub-tittles2{
+  text-align: center;
+  position: relative;
+  font-size: 1em;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+.aside-container2 .aside-tittles2{
+  text-align: center;
+  font-size: large;
+  color: red;
+  font-size: 2em;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  
+
+}
+
+.aside-container2 blockquote,h1{
+  text-align: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+.aside-container2 p{
+  margin-left: 15px;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+.aside-container2 p .gap{
+  margin-left: 15px;
+}
+.aside-container2 p .gap1{
+  margin-left: 55px;
+}
+.aside-container2 p .gap2{
+  margin-left: 30px;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+.aside-container2 p .gap3{
+  margin-left: 110px;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+/*----------------------ARTICLE END----------------- */
+
+/* --------------RESPONSIVE START-------------- */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .foto {
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+    right: 60px;
+    z-index: 20;
+  }
+  .foto img {
+    justify-self: center;
+    align-items: center;
+    width: 200px;
+    object-fit: cover;
+  }
+
+  .home {
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+    right: 0;
+  }
+
+  .home-content h1 {
+    font-size: 30px;
+    text-align: center; /* Center-align the text for mobile */
+    left: 0;
+  }
+
+  .home-content h3 {
+    width: 60vh;
+    margin-left: 50px;
+    font-size: 20px;
+    text-align: center; /* Center-align the text for mobile */
+  }
+
+  .home-content p {
+    font-size: 14px;
+    width: 60vh; /* Make the text content full-width */
+    text-align: center; /* Center-align the text for mobile */
+    margin: 10px 50px; /* Add spacing between paragraphs */
+  }
+
+  .btn-box {
+    width: 100%;
+    text-align: center; /* Center-align the button for mobile */
+    position: relative;
+    left: 30%;
+    padding-right: -200px;
+  }
+
+  .fa-solid {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .navbar-logo {
+    text-align: center;
+  }
+
+  .container {
+    width: 100%; /* Make the container full-width for mobile */
+  }
+
+  .article {
+    width: 100%; /* Make the article section full-width for mobile */
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+/* @media (max-width: 768px) {
+  .foto {
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+    right: 60px;
+    z-index: 20;
+  }
+  .foto img {
+    justify-self: center;
+    align-items: center;
+    width: 200px;
+    object-fit: cover;
+  }
+  .home {
+    flex-direction: column;
+    position: relative;
+    right: 120px;
+  }
+  .home-content h1 {
+    font-size: 50px;
+    left: 40px;
+  }
+  .home-content h3 {
+    font-size: 20px;
+  }
+  .home-content p {
+    font-size: 10px;
+    width: 60vh;
+  }
+  .btn-box {
+    position: inherit;
+    left: 23%;
+  }
+  .fa-solid {
+    position: relative;
+    top: 5px;
+    left: -10px;
+  }
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+  .navbar-logo {
+    text-align: center;
+  }
+    .container {
+      width: 67.5vh;
+    }
+  
+} */
+/* ---------------RESPONSIVE END------------------ */
+/* Main End */
+
+
+
+/* SlideShow Start */
+
+.container3{
+  position: absolute;
+  top: 210%;
+  background-color: var(--main-gray7) ;
+  background-image: url(/assets/foto/wallpaper-batman.jpg);
+  object-fit: cover;
+  width: 100%; /* Mengisi seluruh lebar halaman */
+  height: 100vh; /* Mengisi seluruh tinggi halaman */
+  background-repeat: no-repeat;
+  background-size: cover; /* Mengisi seluruh area dengan gambar */
+  background-position: center;
+  font-family: 'Pangolin', cursive;
+
+}
+.container-slider{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  width: 1000px;
+  height: 600px;
+  padding: 50px;
+  background-color: #f5f5f5;
+  box-shadow: 0 30px 50px #dbdbdb;
+  z-index: 10;
+  left: 50%;
+  top: 40%;
+  
+}
+
+.slide-title{
+  position: fixed;
+  top: 225%;
+  left: 34%;
+  width: 620px;
+  background: var(--main-gray6);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  text-align: center;
+  height: 20%;
+  padding-top: 50px;
+}
+
+.slide{
+  border-radius: 30px;
+  width: max-content;
+  margin-top: 50px;
+}
+
+.item{
+  width: 200px;
+  height: 300px;
+  background-position: 50% 50%;
+  display: inline-block;
+  transition: 0.5s;
+  background-size: cover;
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  transform: translateY(0, -50%);
+  border-radius: 30px;
+  box-shadow: 0 30px 50px #505050;
+
+}
+
+.item:nth-child(1),
+.item:nth-child(2){
+  left: 0;
+  top: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+}
+.item:nth-child(3){
+  left: 50%;
+  
+}
+.item:nth-child(4){
+  left: calc(50% + 220px);
+}
+.item:nth-child(5){
+  left: calc(50% + 440px);
+}
+.item:nth-child(n+6){
+  left: calc(50% + 660px);
+  opacity: 0;
+}
+
+.item .content-slide{
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  width: 300px;
+  text-align: left;
+  padding: 0;
+  color:aqua;
+  transform: translate(0, -50%);
+  font-family: system-ui;
+  display: none;
+} 
+
+.item:nth-child(2) .content{
+  display: none;
+  z-index: 111111;
+}
+.item .name-content{
+  font-size:  40px;
+  font-weight: bold;
+  opacity: 0;
+  animation: showContent 1s ease-in-out 1 forwards;
+}
+.item .desc-content{
+  margin: 20px 0;
+  opacity: 0;
+  animation: showContent 1s ease-in-out 0.3s 1 forwards;
+}
+
+.item button{
+  padding: 10px 20px;
+  border: none;
+  opacity: 0;
+  animation: showContent 1s ease-in-out 0.6s 1 forwards;
+}
+
+@keyframes showContent{
+  from{
+      opacity: 0;
+      transform: translate(0,100px);
+      filter: blur(33px);
+  }
+  to{
+      opacity: 1;
+      transform: translate(0,0px);
+      filter: blur(0);
+  }
+}
+
+
+
+
+/* slide urahara */
+.container4{
+  position: absolute;
+  top: 400%;
+  background-color: #cec6a1 ;
+  /* background-image: url(/assets/foto/wallpaper-batman.jpg); */
+  object-fit: cover;
+  width: 100%; /* Mengisi seluruh lebar halaman */
+  height: 100vh; /* Mengisi seluruh tinggi halaman */
+  background-repeat: no-repeat;
+  background-size: cover; /* Mengisi seluruh area dengan gambar */
+  background-position: center;
+  font-family: 'Pangolin', cursive;
+}
+
+.container4 span{
+  padding-top: 50%;
+}
+
+.container-slider2{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  width: 1000px;
+  height: 600px;
+  padding: 50px;
+  background-color: #f5f5f5;
+  box-shadow: 0 30px 50px #dbdbdb;
+  z-index: 10;
+  left: 50%;
+  top: 40%;
+  
+}
+
+.slide-title2{
+  position: fixed;
+  top: 225%;
+  left: 34%;
+  width: 620px;
+  background: var(--main-gray6);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  text-align: center;
+  height: 20%;
+  padding-top: 50px;
+}
+
+.slide2{
+  border-radius: 30px;
+  width: max-content;
+  margin-top: 50px;
+}
+
+.item2{
+  width: 200px;
+  height: 300px;
+  background-position: 50% 50%;
+  display: inline-block;
+  transition: 0.5s;
+  background-size: cover;
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  transform: translateY(0, -50%);
+  border-radius: 30px;
+  box-shadow: 0 30px 50px #505050;
+
+}
+
+.item2:nth-child(1),
+.item2:nth-child(2){
+  left: 0;
+  top: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+}
+.item2:nth-child(3){
+  left: 50%;
+  
+}
+.item2:nth-child(4){
+  left: calc(50% + 220px);
+}
+.item2:nth-child(5){
+  left: calc(50% + 440px);
+}
+.item2:nth-child(n+6){
+  left: calc(50% + 660px);
+  opacity: 0;
+}
+
+.item2 .content-slide2{
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  width: 300px;
+  text-align: left;
+  padding: 0;
+  color:aqua;
+  transform: translate(0, -50%);
+  font-family: system-ui;
+  display: none;
+} 
+
+.item2:nth-child(2) .content2{
+  display: none;
+  z-index: 111111;
+}
+.item2 .name-content2{
+  font-size:  40px;
+  font-weight: bold;
+  opacity: 0;
+  animation: showContent 1s ease-in-out 1 forwards;
+}
+.item2 .desc-content2{
+  margin: 20px 0;
+  opacity: 0;
+  animation: showContent 1s ease-in-out 0.3s 1 forwards;
+}
+
+.item2 button{
+  padding: 10px 20px;
+  border: none;
+  opacity: 0;
+  animation: showContent 1s ease-in-out 0.6s 1 forwards;
+}
+
+@keyframes showContent{
+  from{
+      opacity: 0;
+      transform: translate(0,100px);
+      filter: blur(33px);
+  }
+  to{
+      opacity: 1;
+      transform: translate(0,0px);
+      filter: blur(0);
+  }
+}
+
+/* slide urahara */
+
+.buttons-slide{
+  position: absolute;
+  bottom: -50px;
+  right: 20px;
+  z-index: 22222;
+  text-align: center;
+  width: 100%;
+}
+.buttons-slide h1{
+  font-size: 10px;
+}
+
+.buttons-slide button{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #555;
+  transition: 0.5s;
+}
+.buttons-slide button:hover{
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.buttons-slide2{
+  position: absolute;
+  bottom: -50px;
+  right: 20px;
+  z-index: 22222;
+  text-align: center;
+  width: 100%;
+}
+.buttons-slide2 h1{
+  font-size: 10px;
+}
+
+.buttons-slide2 button{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #555;
+  transition: 0.5s;
+}
+.buttons-slide2 button:hover{
+  background-color: #fff;
+  cursor: pointer;
+}
+
+
+/* SlideShow End */
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-gray);
+  transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+  background: var(--main-red);
+}
+
+.btn-show-all:hover>i {
+  transform: translateX(2px);
+}
+
+.btn-show-all>i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+
+.contact-section {
+  background-color: var(--main-gray7);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -200px;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-gray7);
+  animation: munculText 3s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.contact-section-header>h2 {
+  font-size: 6rem;
+}
+
+@media (max-width: 28.75em) {
+  .contact-section-header>h2 {
+    font-size: 4rem;
+  }
+}
+
+.contact-section-header>p {
+  font-style: italic;
+  
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  
+}
+
+.contact-links>a{
+  text-decoration: none;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+  color: #fff;
+  font-family: 'Rock Salt', cursive;  
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+}
+
+.contact-section-header {
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .contact-section-header > h2 {
+    font-size: 4rem;
+    padding-top: 300px;
+  }
+
+  .btn-show-all {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    justify-content: center;
+  }
+
+  .contact-links {
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .contact-details {
+    font-size: 1.6rem;
+  }
+}
+
+
+
+
+
+.footer {
+  background-color: #333;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  position:absolute; /* Add relative positioning */
+  bottom: 0%;
+  height: 5%;
+}
+.footer2 {
+  background-color: #333;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  position:absolute; /* Add relative positioning */
+  bottom: 0%;
+  height: 5%;
+
+}
+
+  .footer-down{
+    position:absolute;
+    top: 500%;
+  }
+
+.footer-content {
+  font-size: 14px;
+}
+
+
+/* ANIMATIONS */
+@keyframes munculText {
+  100% {
+    width: 0;
+  }
+}
+
+.typing {
+  width: 15ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 3em;
+}
+
+
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+@keyframes wave {
+  10% {
+    transform: rotate(110deg) scaleX(-1);
+  }
+  20% {
+    transform: rotate(130deg) scaleX(-1);
+  }
+  30% {
+    transform: rotate(110deg) scaleX(-1);
+  }
+  40% {
+    transform: rotate(130deg) scaleX(-1);
+  }
+}
+</style>
+<body>
+    <!--Navbar Start-->
+    <header>
+        <nav class="navbar ">
+            <a href="#" class="navbar-logo">RYAN</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="fav" class="nav-link"><i id="icon" class="fa-solid fa-angle-down"></i>FAVORITE</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/kontak" class="nav-link">CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">LOGOUT</a>
+                </li>
+            </ul>
+            <div class="sub-menu-wrap" style="background-image: url(/assets/foto/968.jpg);">
+                <div class="sub-menu">
+                    <a href="#article" >
+                        <h1 id="artc">MOVIE
+                    </a></h1>
+                    <a href="#charas">
+                        <h1 id="chara">CHARACTER
+                    </a></h1>
+                    <a href="#article2">
+                        <h1 id="artc2">ANIME
+                    </a></h1>
+                    <a href="#charas2">
+                        <h1 id="chara2">CHARACTER
+                    </a></h1>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--Navbar End-->
+
+    <!-- Content Start-->
+    <main>
+        <div class="home-container">
+            <div class="foto">
+                <img src="../inert/assets/foto/Untitled2323232-removebg-preview.png" alt="my-foto">
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#f3f4f5" fill-opacity="0.65"
+                    d="M0,160L34.3,165.3C68.6,171,137,181,206,202.7C274.3,224,343,256,411,234.7C480,213,549,139,617,128C685.7,117,754,171,823,202.7C891.4,235,960,245,1029,224C1097.1,203,1166,149,1234,160C1302.9,171,1371,245,1406,282.7L1440,320L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z">
+                </path>
+            </svg>
+            <section class="home">
+                <div class="home-content">
+                    <h1>
+                        HI, I'm M ADRYAN!
+                    </h1>
+                    <h3>
+                        Cloud Computing Cohort at Bangkit Academy || JS - TS Enthusiast
+                    </h3>
+                    <p>
+                        I Just want to share quotes from my favorite character,
+                        theres is bruce wayne from The Batman, And Kisuke Urahara From Bleach
+                        I Love This Both Characters 
+                    <div class="btn-box">
+                        <a href="mailto:m.adryan54@gmail.com" target="_blank">Contact Me</a>
+                    </div>
+                    </p>
+                </div>
+                <a href="#article" class="section2">
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+        </div>
+
+
+        <!-- section 2 -->
+        <div id="article" class="father dissapear">
+            
+            <section class="container">
+                <article class="article">
+                    <h1><span style="background-color: black; border-radius: 70px; padding: 0 30px 0 30px  ;">"Vengeance
+                            Wont Change </span><span
+                            style="background-color: black; border-radius: 70px; padding: 0 30px ;">The <span
+                                style="color: rgb(187, 27, 27);">Past</span><span style="color: white;">"</span></h1>
+
+                    <br>
+                    <br>
+                    <p>Batman, whose real name is Bruce Wayne, witnessed the murder of his parents as a child, which
+                        left a profound emotional scar on him. His initial motivation for becoming Batman was rooted in
+                        a desire for vengeance against those who had taken his parents' lives. However, as he matured
+                        and embraced his role as a crime-fighter, Batman came to realize that vengeance alone was not a
+                        sustainable or morally justifiable path.
+                        <br>
+                        <br>
+                    <p>The phrase <span style="color: rgb(187, 27, 27);">"vengeance won't change the past"</span>
+                        embodies Batman's realization that no amount of revenge or retribution can bring his parents
+                        back or undo the tragedy that occurred. Instead, he chooses to focus on preventing similar
+                        tragedies from happening to others by dedicating his life to fighting crime and seeking justice.
+                        Batman's mission is about making Gotham City a safer place and upholding the law, rather than
+                        simply seeking personal vengeance.</p>
+
+                    <div class="aside-container">
+                        <h1 class="aside-tittles">The Batman</h1>
+                        <p class="sub-tittles">2022</p>
+                        <aside><img src="./assets/foto/batman/batman.jpg" alt="the-batman"></aside>
+                        <blockquote>Batman</blockquote>
+                        <hr>
+                        <h1>General Information</h1>
+                        <br>
+                        <p>Real Name : <span class="gap">Bruce Wayne</span></p>
+                        <p>A.K.A : <span class="gap1">The Vengeance</span></p>
+                        <p>Abbilities : <span class="gap2">Genius-Level</span></p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <!-- <aside> -->
+        <!-- </aside> -->
+
+
+
+        <!-- SLIDESHOW -->
+        <div id="charas" class="container3 dissapear ">
+
+                <h1><span style="background-color: black; border-radius: 70px; padding: 0 30px 0 30px  ;color: #fff;" >GALLERY OF<span style="color:red"> BATMAN</span></span></h1>
+            
+            <div  class="container-slider">
+                <div class="slide">
+                    <div class="item" style="background-image: url(./assets/foto/batman/batman.jpeg);">
+                        <div class="content-slide">
+                            <div class="name-content">
+                                The Batman
+                            </div>
+                            <div class="desc-content">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(./assets/foto/batman/batman1.png);">
+                        <div class="content-slide">
+                            <div class="name-content">
+                                nimiya
+                            </div>
+                            <div class="desc-content">
+                                keren banged DAH LU
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(./assets/foto/batman/batman2.jpeg);">
+                        <div class="content-slide">
+                            <div class="name-content">
+                                batman
+                            </div>
+                            <div class="desc-content">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(./assets/foto/batman/batman3.jpeg);">
+                        <div class="content-slide">
+                            <div class="name-content">
+                                batman
+                            </div>
+                            <div class="desc-content">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(./assets/foto/batman/batman4.jpg);">
+                        <div class="content-slide">
+                            <div class="name-content">
+                                batman
+                            </div>
+                            <div class="desc-content">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(./assets/foto/batman/batman5.jpeg);">
+                        <div class="content-slide">
+                            <div class="name-content">
+                                batman
+                            </div>
+                            <div class="desc-content">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item" style="background-image: url(./assets/foto/batman/batman6.jpg);">
+                        <div class="content-slide">
+                            <div class="name-content">
+                                batman
+                            </div>
+                            <div class="desc-content">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="buttons-slide">
+                        <button id="prev">
+                            <h1>
+                                </h1>
+                        </button>
+                        <button id="next">
+                            <h1>></h1>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="article2" class="father2 dissapear">
+            <section class="container2">
+            <article class="article2">
+                <h1><span style="background-color: rgb(158, 133, 100); border-radius: 70px; padding: 0 30px 0 30px ;color: #fff; filter: blur(1px); opacity: 70%;">"Training hard, <span style="color: red;"> Risking your life...</span></span> <span style="background-color: rgb(158, 133, 100); border-radius: 70px; padding: 0 30px 0 30px ;color: #fff; filter: blur(1px); opacity: 70%;"">what's the difference?"</span></h1>
+
+                <br>
+                <br>
+                <p>Kisuke Urahara is a former captain of the Gotei 13 and a highly skilled and mysterious character in the series.
+                    <p>This quote reflects Urahara's philosophy and personality. He is known for his laid-back and enigmatic demeanor, often speaking in a cryptic or philosophical manner. In this particular quote, Urahara is emphasizing the importance of dedication and effort in training.   </p>            
+                    <br>      
+                    <p>Urahara's character is known for imparting wisdom and guidance to the main character, Ichigo Kurosaki, and others throughout the series, often through cryptic or thought-provoking statements like this one. It reflects his role as a mentor and a source of knowledge and support for the young heroes in the story.</p>
+                        <br>
+                    <p>He's suggesting that when someone is truly committed to their training and striving for improvement, it can become a central and defining aspect of their life. In essence, there is no clear distinction between one's life and their training when they are wholeheartedly pursuing their goals.</p>
+                    <div class="aside-container2">
+                        <h1 class="aside-tittles2">Bleach</h1>
+                        <p class="sub-tittles2">2004</p>
+                        <aside><img src="./assets/foto/urahara.jpg" alt="urahara"></aside>
+                        <blockquote>Batman</blockquote>
+                        <hr>
+                        <h1>General Information</h1>
+                        <br>
+                        <p>Real Name : <span class="gap">Kisuke Urahara</span></p>
+                        <p>A.K.A : <span class="gap1">Urahara</span></p>
+                        <p>Abbilities : <span class="gap2">Kannonbiraki </span> <span class="gap3">Aratame</span></p>
+                    </div>
+                </section>
+
+        </div>
+
+
+
+
+
+        <!-- URAHARA SLIDE START-->
+<div class="container4 dissapear">
+
+                <h1><span style="background-color: black; border-radius: 70px; padding: 0 30px 0 30px  ;color: #fff;" >GALLERY OF<span style="color:rgb(211, 155, 70)"> URAHARA</span></span></h1>
+            
+            <div id="charas2" class="container-slider2">
+                <div class="slide2">
+                    <div class="item2" style="background-image: url(./assets/foto/urahara/urahara1.jpg);">
+                        <div class="content-slide2">
+                            <div class="name-content2">
+                                The Batman
+                            </div>
+                            <div class="desc-content2">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item2" style="background-image: url(./assets/foto/urahara/urahara2.png);">
+                        <div class="content-slide2">
+                            <div class="name-content2">
+                                nimiya
+                            </div>
+                            <div class="desc-content2">
+                                keren banged DAH LU
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item2" style="background-image: url(./assets/foto/urahara/urahara3.jpg);">
+                        <div class="content-slide2">
+                            <div class="name-content2">
+                                batman
+                            </div>
+                            <div class="desc-content2">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item2" style="background-image: url(./assets/foto/urahara/urahara4.jpg);">
+                        <div class="content-slide2">
+                            <div class="name-content2">
+                                batman
+                            </div>
+                            <div class="desc-content2">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item2" style="background-image: url(./assets/foto/urahara/urahara5.png);">
+                        <div class="content-slide2">
+                            <div class="name-content2">
+                                batman
+                            </div>
+                            <div class="desc-content2">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item2" style="background-image: url(./assets/foto/urahara/urahara6.jpg);">
+                        <div class="content-slide2">
+                            <div class="name-content2">
+                                batman
+                            </div>
+                            <div class="desc-content2">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="item2" style="background-image: url(./assets/foto/urahara/urahara7.jpg);">
+                        <div class="content-slide2">
+                            <div class="name-content2">
+                                batman
+                            </div>
+                            <div class="desc-content2">
+                                keren dah
+                            </div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+                    <div class="buttons-slide2">
+                        <button id="prev2">
+                            <h1>
+                                <</h1>
+                        </button>
+                        <button id="next2">
+                            <h1>></h1>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- URAHARA SLIDE END -->
+    </main>
+    <footer class="footer">
+
+        <div class="footer-content">
+            &copy; 2023 Ryan||Penyuka Nel.
+        </div>
+    </footer>
+
+    
+    <!-- Footer END -->
+</body>
+<script>
+    const dropDown = document.querySelector('.section2');
+const article = document.querySelector('.father');
+const article2 = document.querySelector('.father2');
+const next = document.getElementById('next');
+const prev = document.getElementById('prev');
+const next2 = document.getElementById('next2');
+const prev2 = document.getElementById('prev2');
+const slidesAppear = document.querySelector('.container3');
+const slidesAppear2 = document.querySelector('.container4');
+const footer = document.querySelector('footer');
+const subMenu = document.getElementById('fav');
+const subMenu2 = document.querySelector('.sub-menu-wrap');
+const icon = document.getElementById('icon')
+const contact = document.getElementById('contact')
+const artc = document.getElementById('artc')
+const chara = document.getElementById('chara')
+const artc2 = document.getElementById('artc2')
+const chara2 = document.getElementById('chara2')
+
+// subMenu.addEventListener('mouseover', () => {
+//   subMenu2.classList.toggle('open-menu');
+// });
+// subMenu2.addEventListener('mouseout', () => {
+//   subMenu2.classList.toggle('open-menu');
+// });
+
+subMenu.addEventListener('click', () => {
+        subMenu2.classList.toggle('open-menu');
+    });
+
+// subMenu2.addEventListener('mouseout', () => {
+//     subMenu2.classList.toggle('open-menu');
+// })
+
+artc.addEventListener('click', ()=>{
+  article.classList.toggle('dissapear');
+  slidesAppear.classList.toggle('dissapear');
+  article2.classList.toggle('dissapear');
+  slidesAppear2.classList.toggle('dissapear');
+  footer.classList.toggle('footer-down');
+})
+chara.addEventListener('click', ()=>{
+  slidesAppear.classList.toggle('dissapear');
+  article.classList.toggle('dissapear');
+  slidesAppear2.classList.toggle('dissapear');
+  article2.classList.toggle('dissapear');
+  footer.classList.toggle('footer-down');
+})
+artc2.addEventListener('click', ()=>{
+  article.classList.toggle('dissapear');
+  article2.classList.toggle('dissapear');
+  slidesAppear.classList.toggle('dissapear');
+  slidesAppear2.classList.toggle('dissapear');
+  footer.classList.toggle('footer-down');
+})
+chara2.addEventListener('click', ()=>{
+  slidesAppear.classList.toggle('dissapear');
+  slidesAppear2.classList.toggle('dissapear');
+  article.classList.toggle('dissapear');
+  article2.classList.toggle('dissapear');
+  footer.classList.toggle('footer-down');
+})
+
+dropDown.addEventListener('click', () => {
+  article.classList.toggle('dissapear');
+  article2.classList.toggle('dissapear');
+  slidesAppear.classList.toggle('dissapear');
+  slidesAppear2.classList.toggle('dissapear');
+  footer.classList.toggle('footer-down');
+  contact.classList.toggle('dissapear')
+  window.scrollTo(0, article.offsetTop);
+});
+
+next.addEventListener('click', () => {
+  const list = document.querySelectorAll('.item');
+  document.querySelector('.slide').appendChild(list[0]);
+});
+prev.addEventListener('click', () => {
+  const list = document.querySelectorAll('.item');
+  document.querySelector('.slide').prepend(list[list.length - 1]);
+});
+next2.addEventListener('click', () => {
+  const list2 = document.querySelectorAll('.item2');
+  document.querySelector('.slide2').appendChild(list2[0]);
+});
+prev2.addEventListener('click', () => {
+  const list2 = document.querySelectorAll('.item2');
+  document.querySelector('.slide2').prepend(list2[list2.length - 1]);
+});
+
+</script>
+
+</html>

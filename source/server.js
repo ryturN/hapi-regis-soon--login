@@ -79,7 +79,7 @@ const init = async () => {
       name: 'session',
       password: 'ryanryanryanryanryanryanryanryanryarnaryha',
       isSecure: false,
-      ttl: 30000
+      ttl: 300000
     },
     redirectTo: '/login',
     validate: async (request, session) => {
