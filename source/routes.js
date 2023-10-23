@@ -58,6 +58,18 @@ const routes = [
   },
   {
     method: "GET",
+    path: "/registrasi",
+    handler: (request, h) => {
+      return h.file("registration.html");
+    },
+    options: {
+      auth: {
+        mode: 'try'
+      }
+    }
+  },
+  {
+    method: "GET",
     path: "/loginBasic",
     handler: (request, h) => {
       const name = request.auth.credentials.name;
@@ -98,18 +110,18 @@ const routes = [
       return h.view("index", { users });
     },
   },
-  {
-    method: "GET",
-    path: "/{any*}",
-    handler: (request, h) => {
-      return `<h1>you got wrong direction brow</h1>`;
-    },
-    options: {
-      auth: {
-        mode: "try",
-      },
-    },
-  },
+  // {
+  //   method: "GET",
+  //   path: "/{any*}",
+  //   handler: (request, h) => {
+  //     return `<h1>you got wrong direction brow</h1>`;
+  //   },
+  //   options: {
+  //     auth: {
+  //       mode: "try",
+  //     },
+  //   },
+  // },
 ];
 
 module.exports = routes;
