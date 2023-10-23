@@ -14,7 +14,7 @@ npm install
 
 3. Set up your MySQL database with the required tables. You can use the provided SQL script `database.sql` for reference.
 
-4. Configure the database connection in the `dbconfig.js` file.
+4. Configure the database connection in the `.env` file.
 
 ## Usage
 
