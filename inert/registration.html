@@ -10,26 +10,27 @@
     <div class="container mx-auto my-10">
         <div class="w-full bg-white rounded-lg shadow-md p-5">
             <h1 class="text-xl font-semibold mb-5">Registration Form</h1>
-            <form action="/registrasi" method="POST">
+            <form action="/verify" method="POST">
                 <div class="mb-5">
                     <label for="firstName" class="block mb-1">First Name</label>
-                    <input id="firstName" name="firstName" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="firstName">
+                    <input id="firstName" name="firstName" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="firstName"required>
                 </div>
                 <div class="mb-5">
                     <label for="lastName" class="block mb-1">Last Name</label>
-                    <input id="lastName" name="lastName" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="lastName">
+                    <input id="lastName" name="lastName" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="lastName" required>
                 </div>
                 <div class="mb-5">
-                    <label for="username" class="block mb-1">Username</label>
-                    <input id="username" name="username" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Username">
+                    <label for="username" class="block mb-1" >Username</label>
+                    <input id="username" name="username" type="text" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Username" required>
                 </div>
                 <div class="mb-5">
                     <label for="email" class="block mb-1">Email Address</label>
-                    <input id="email" name="email" type="email" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Email Address">
+                    <input id="email" name="email" type="email" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Email Address"required>
                 </div>
                 <div class="mb-5">
                     <label for="password" class="block mb-1">Password</label>
-                    <input id="password" name="password" type="password" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Password">
+                    <input id="password" name="password" type="password" class="w-full border-2 border-gray-200 p-2 rounded-lg" placeholder="Password"required pattern = "(?=.*\d)(?=.* 
+                    [a-z])(?=.*?[0-9])(?=.*?[~`!@#$%\^&*()\-_=+[\]{};:\x27.,\x22\\|/?>]).{4,}">
                 </div>
                 <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg">Register</button>
             </form>

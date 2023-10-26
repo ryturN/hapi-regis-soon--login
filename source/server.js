@@ -26,7 +26,7 @@ const users = {
 
 const init = async () => {
   const server = Hapi.server({
-    port: 1234,
+    port: 3456,
     host: "localhost",
     routes: {
       cors: {
@@ -57,6 +57,8 @@ const init = async () => {
     {
       plugin: require('@hapi/cookie'),
     },
+    
+    
   ]);
 
   // server.auth.strategy('login','cookie', {
@@ -75,12 +77,18 @@ const init = async () => {
   //     }
   //   }
   // })
+  // server.state('verify',{
+  //   ttl: 60000,
+  //   isSecure: false,
+  //   isHttpOnly: true,
+  // })
+
   server.auth.strategy('login','cookie', {
     cookie: {
       name: 'session',
       password: 'ryanryanryanryanryanryanryanryanryarnaryha',
       isSecure: false,
-      ttl: 300000
+      ttl: 300000,
     },
     redirectTo: '/login',
     validate: async (request, session) => {
@@ -99,7 +107,7 @@ const init = async () => {
     engines:{
       hbs: require('handlebars')
     },
-    path: path.join(__dirname,'../views'),
+    path: path.join(__dirname,'../inert'),
     layout: 'default'
   })
 

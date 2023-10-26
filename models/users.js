@@ -36,47 +36,34 @@ const Users = dbConnection.define('users',{
 });
 
 
-        dbConnection.sync();  
+            dbConnection.sync();  
 
 
 
 const createUser = function (firstName, lastName, username, password, email) {
     const hashedPassword = bcrypt.hashSync(password, 10);
     Users.create({ firstName, lastName, username, password: hashedPassword, email })
-    console.log('User created successfully');
 };
 
-const findUser= async function(username,password){
-    try{
-        const user = await Users.findOne({where: {username, password}});
-        return user
-    }catch(error){
+const findUser = async function(username, password) {
+    try {
+        const user = await Users.findOne({ where: { username } });
+
+        if (user) {
+            const result = bcrypt.compareSync(password, user.password);
+            if (result) {
+                return user;
+            }
+        } else {
+            // Handle the case where the user is not found
+            return user;
+        }
+    } catch (error) {
         console.log(`Error Finding users:`, error);
-        throw error
+        throw error;
     }
-}
+};
 
-
-
-// module.exports.createUser = function (username, password, email, firstName, lastName, fullName) {
-//     const hashedPassword = bcrypt.hashSync(password, 10); 
-
-//     const user = {
-//         username: username,
-//         password: hashedPassword,
-//         email: email,
-//         firstName: firstName,
-//         lastName: lastName,
-//         fullName: fullName
-//     }.then((data)=>{
-//         console.log(data.toJSON)
-//     });
-
-//     connection.query('INSERT INTO users SET ?', user, (error, results, fields) => {
-//         if (error) throw error;
-//         console.log('User created successfully!');
-//     });
-// };
 
 module.exports = { Users, findUser,createUser };
 
