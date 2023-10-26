@@ -83,13 +83,13 @@ const routes = [
         let transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            // user: 'watashiox@gmail.com',
-            pass: "xtcvwuvoxccwcong",
+            user: '<your@gmail.com>',
+            pass: "yourpassword",
           },
         });
 
         let mailOptions = {
-          from: '"ryan" watashiox@gmail.com',
+          from: '"yourname" <your@gmail.com>',
           to: request.payload.email,
           subject: "Verification Code",
           text: `Your verification code is ${verificationCode}.`,
