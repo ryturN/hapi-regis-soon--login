@@ -4,27 +4,11 @@ const Users = require("../models/users.js");
 const Boom = require("@hapi/boom");
 const Joi = require("@hapi/joi");
 const bcrypt = require("bcrypt");
-const { createUser } = require("../models/users");
+const {createUser} = require("../models/users");
 const nodemailer = require("nodemailer");
+const localStorage = require('localStorage')
 
-// const routes = [
-//     {
-//         method : 'POST',
-//         path : '/login',
-//         handler : (request,h)=>{
-//             if(request.payload.username === 'ryan' && request.payload.password === 'ryan123'){
-//                 request.cookieAuth.set({username: request.payload.username, password: request.payload.password })
-//                 return h.redirect('/welcome');
-//             } else{
-//                 return h.redirect('/');
-//             }
-//         },
-//         options:{
-//             auth:{
-//                 mode: 'try'
-//             }
-//         }
-//     },
+
 const routes = [
   {
     method: "POST",
@@ -47,6 +31,38 @@ const routes = [
   },
   {
     method: "POST",
+    path: "/registrasi",
+    handler: async (request, h) => {
+      const { userVerificationCode } = request.payload;
+      
+      const dataStorage = JSON.parse(localStorage.getItem('data'));
+      console.log("dataStorage:", dataStorage);
+
+      const verificationCode = localStorage.getItem('verify');
+      const parsedVerificationCode = parseInt(verificationCode)
+      console.log(verificationCode);
+      const parsedUserVerificationCode = parseInt(userVerificationCode);
+      console.log(parsedUserVerificationCode === parsedVerificationCode);
+      if (parsedUserVerificationCode === parsedVerificationCode) {
+        createUser(dataStorage.firstName, 
+          dataStorage.lastName, 
+          dataStorage.username,
+          dataStorage.password,
+          dataStorage.email)
+        console.log(dataStorage['firstName'])
+        return h.redirect("/welcome");
+      } else {
+        return h.response("Verification code does not match").code(400);
+      }
+    },
+    options: {
+      auth: {
+        mode: "try",
+      }
+    }
+  },
+  {
+    method: "POST",
     path: "/verify",
     handler: async (request, h) => {
       try {
@@ -57,39 +73,24 @@ const routes = [
           password: request.payload.username,
           email: request.payload.email,
         };
+        console.log(dataStorage)
         const verificationCode = Math.floor(10000 + Math.random() * 90000);
-       h.state.dataStorage = dataStorage;
+       localStorage.setItem('data', JSON.stringify(dataStorage));
 
-        console.log(h.state.dataStorage = dataStorage)
-        // h.state("data", JSON.stringify(dataStorage), {
-        //     encoding: "none",
-        //     ttl: 3600000,
-        //     isSecure: true,
-        //     isHttpOnly: true,
-        //     isSameSite: "Strict",
-        //   })
-        h.state.verificationCode = verificationCode;
-        console.log(h.state.verificationCode)
-        // h.state("verificationCode", verificationCode.toString(), {
-        //     encoding: "none",
-        //     ttl: 3600000,
-        //     isSecure: true,
-        //     isHttpOnly: true,
-        //     isSameSite: "Strict",
-        //   });
-        // console.log(verificationCode);
-        // console.log(firstName);
-        // console.log(h.state("data", JSON.stringify(dataStorage)));
+        console.log(request.state.dataStorage = dataStorage)
+        localStorage.setItem('verify', verificationCode);
+        console.log(request.state.verificationCode)
+        console.log(verificationCode)
         let transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: '<your@gmail.com>',
-            pass: "yourpassword",
+            // user: 'watashiox@gmail.com',
+            pass: "xtcvwuvoxccwcong",
           },
         });
 
         let mailOptions = {
-          from: '"yourname" <your@gmail.com>',
+          from: '"ryan" watashiox@gmail.com',
           to: request.payload.email,
           subject: "Verification Code",
           text: `Your verification code is ${verificationCode}.`,
@@ -102,7 +103,7 @@ const routes = [
           }
           console.log("Message sent: %s", info.messageId);
         });
-        return h.file("verification.html"); // Add this line to return a valid response
+        return h.file("verification.html"); 
       } catch (error) {
         console.error("Error in route handler:", error);
         return h.response("Internal server error").code(500);
@@ -119,37 +120,6 @@ const routes = [
     },
   },
   {
-    method: "POST",
-    path: "/registrasi",
-    handler: async (request, h) => {
-      const { userVerificationCode } = request.payload;
-      const dataStorage = request.state.dataStorage;
-      console.log("dataStorage:", dataStorage);
-      const { firstName, lastName, username, password, email } = dataStorage;
-      console.log(firstName, lastName, username);
-      const verificationCode = parseInt(request.state.verificationCode);
-      console.log(verificationCode);
-      const parsedUserVerificationCode = parseInt(userVerificationCode);
-      console.log(parsedUserVerificationCode === verificationCode);
-      if (parsedUserVerificationCode === verificationCode) {
-        await createUser(dataStorage);
-        request.cookieAuth.set({ username, password });
-        return h.redirect("/welcome");
-      } else {
-        return h.response("Verification code does not match").code(400);
-      }
-    },
-    options: {
-      auth: {
-        mode: "try",
-      },
-      state: {
-        parse: true,
-        failAction: "error",
-      },
-    },
-  },
-  {
     method: "GET",
     path: "/logout",
     handler: (request, h) => {
@@ -161,7 +131,6 @@ const routes = [
     method: "GET",
     path: "/welcome",
     handler: (request, h) => {
-      // return `Hallo ${request.auth.credentials.username} Selamat datang di web yang bodoh ini`;
       return h.file("index.html");
     },
   },
@@ -207,15 +176,6 @@ const routes = [
       },
     },
   },
-  // {
-  //   method: "GET",
-  //   path: "/getUsers",
-  //   handler: async (request, h) => {
-  //     const dbConnection = await Connections.connect();
-  //     console.log(users);
-  //     return h.view("index", { users });
-  //   },
-  // },
   {
     method: "GET",
     path: "/{any*}",
