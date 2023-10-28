@@ -34,13 +34,5 @@
     "regex-username": "^2.0.0",
     "sequelize": "^6.33.0",
     "sweetalert2": "^11.7.32"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ryturN/testing_hapi_api.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ryturN/testing_hapi_api/issues"
-  },
-  "homepage": "https://github.com/ryturN/testing_hapi_api#readme"
+  }
 }
