@@ -1,12 +1,9 @@
-const Connections = require("../dbconfig/index");
-const { findUser } = require("../models/users.js");
-const Users = require("../models/users.js");
-const Boom = require("@hapi/boom");
-const Joi = require("@hapi/joi");
-const bcrypt = require("bcrypt");
+const { findUser, Users } = require("../models/users.js");
 const {createUser} = require("../models/users");
 const nodemailer = require("nodemailer");
 const localStorage = require('localStorage')
+require ("dotenv").config();
+
 
 
 const routes = [
@@ -49,7 +46,6 @@ const routes = [
           dataStorage.username,
           dataStorage.password,
           dataStorage.email)
-        console.log(dataStorage['firstName'])
         return h.redirect("/welcome");
       } else {
         return h.response("Verification code does not match").code(400);
@@ -81,16 +77,17 @@ const routes = [
         localStorage.setItem('verify', verificationCode);
         console.log(request.state.verificationCode)
         console.log(verificationCode)
+        if(firstName !== findUser(username) ||request.payload.email !== findUser(email)){
         let transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            // user: 'watashiox@gmail.com',
-            pass: "xtcvwuvoxccwcong",
+            user: `${process.env.EMAIL_MASTER}`,
+            pass:`${process.env.PASSWORD_MASTER}`,
           },
         });
 
         let mailOptions = {
-          from: '"ryan" watashiox@gmail.com',
+          from: '"LowerMoon" uppermoon1404@gmail.com',
           to: request.payload.email,
           subject: "Verification Code",
           text: `Your verification code is ${verificationCode}.`,
@@ -104,6 +101,9 @@ const routes = [
           console.log("Message sent: %s", info.messageId);
         });
         return h.file("verification.html"); 
+      }else{
+        h.status(409).send('email already taken!')
+      }
       } catch (error) {
         console.error("Error in route handler:", error);
         return h.response("Internal server error").code(500);

@@ -61,28 +61,6 @@ const init = async () => {
     
   ]);
 
-  // server.auth.strategy('login','cookie', {
-  //   cookie: {
-  //     name: 'session',
-  //     password: 'ryanryanryanryanryanryanryanryanryarnaryha',
-  //     isSecure: false,
-  //     ttl: 30000
-  //   },
-  //   redirectTo: '/login',
-  //   validate: async (request,session)=>{
-  //     if(session.username === 'ryan' && session.password === 'ryan123'){
-  //       return {isValid: true,credentials: {username: 'mie ayam'}}; 
-  //     }else{
-  //       return {isValid: false};
-  //     }
-  //   }
-  // })
-  // server.state('verify',{
-  //   ttl: 60000,
-  //   isSecure: false,
-  //   isHttpOnly: true,
-  // })
-
   server.auth.strategy('login','cookie', {
     cookie: {
       name: 'session',
