@@ -5,7 +5,6 @@ const localStorage = require('localStorage')
 require ("dotenv").config();
 
 
-
 const routes = [
   {
     method: "POST",
@@ -77,7 +76,7 @@ const routes = [
         localStorage.setItem('verify', verificationCode);
         console.log(request.state.verificationCode)
         console.log(verificationCode)
-        if(firstName !== findUser(username) ||request.payload.email !== findUser(email)){
+        // if(dataStorage.username !== Users.findOne({where: {username}}) ||dataStorage.email !== findUser(session.email)){
         let transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
@@ -101,9 +100,9 @@ const routes = [
           console.log("Message sent: %s", info.messageId);
         });
         return h.file("verification.html"); 
-      }else{
-        h.status(409).send('email already taken!')
-      }
+      // }else{
+      //   h.status(409).send('email already taken!')
+      // }
       } catch (error) {
         console.error("Error in route handler:", error);
         return h.response("Internal server error").code(500);
@@ -176,6 +175,10 @@ const routes = [
       },
     },
   },
+  // {
+  //   method: 'GET',
+  //   path : `/${username}`
+  // },
   {
     method: "GET",
     path: "/{any*}",
